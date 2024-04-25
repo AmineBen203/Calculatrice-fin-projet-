@@ -70,7 +70,7 @@ namespace Calculatrice
             {
                 button5.PerformClick();
             }
-            else if (e.KeyCode == Keys.Back)
+            else if (e.KeyCode == Keys.NumPad9)
             {
                 button6.PerformClick();
             }
