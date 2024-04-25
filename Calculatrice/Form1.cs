@@ -70,6 +70,14 @@ namespace Calculatrice
             {
                 button5.PerformClick();
             }
+            else if (e.KeyCode == Keys.Back)
+            {
+                button6.PerformClick();
+            }
+            else if (e.KeyCode == Keys.Back)
+            {
+                button1.PerformClick();
+            }
             else if (e.KeyCode == Keys.Oemplus || e.KeyCode == Keys.Add)
             {
                 
