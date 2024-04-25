@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Calculatrice
 {
@@ -13,7 +14,10 @@ namespace Calculatrice
 
             this.KeyPreview = true;
             this.KeyDown += Form1_KeyDown;
+            
         }
+
+        
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -80,7 +84,7 @@ namespace Calculatrice
             }
             else if (e.KeyCode == Keys.Oemplus || e.KeyCode == Keys.Add)
             {
-                
+                PlayResultSound();
                 compute();
             }
 
@@ -139,6 +143,7 @@ namespace Calculatrice
 
         private void button1_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             label1.Text = "0";
             ans = 0;
             num = 0;    
@@ -146,11 +151,13 @@ namespace Calculatrice
 
         private void button2_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             label1.Text = "-" + label1.Text;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             num = float.Parse(label1.Text);
             label1.Text = "";
             count = 4;
@@ -158,6 +165,7 @@ namespace Calculatrice
 
         private void button5_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             num = float.Parse(label1.Text);
             label1.Text = "";
             count = 3;
@@ -165,6 +173,7 @@ namespace Calculatrice
 
         private void button6_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             if (label1.Text == "0")
             {
                 label1.Text = "9";
@@ -177,6 +186,7 @@ namespace Calculatrice
 
         private void button7_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             if (label1.Text == "0")
             {
                 label1.Text = "8";
@@ -189,6 +199,7 @@ namespace Calculatrice
 
         private void button8_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             if (label1.Text == "0")
             {
                 label1.Text = "7";
@@ -201,6 +212,7 @@ namespace Calculatrice
 
         private void button9_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             num = float.Parse(label1.Text);
             label1.Text = "";
             count = 2;
@@ -208,6 +220,7 @@ namespace Calculatrice
 
         private void button10_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             if (label1.Text == "0")
             {
                 label1.Text = "6";
@@ -220,6 +233,7 @@ namespace Calculatrice
 
         private void button11_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             if (label1.Text == "0")
             {
                label1.Text = "5";
@@ -232,6 +246,7 @@ namespace Calculatrice
 
         private void button12_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             if (label1.Text == "0")
             {
                 label1.Text = "4";
@@ -244,6 +259,7 @@ namespace Calculatrice
 
         private void button14_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             if (label1.Text == "0")
             {
                 label1.Text = "3";
@@ -254,8 +270,28 @@ namespace Calculatrice
             }
         }
 
+        private void PlayClickSound()
+        {
+            try
+            {
+                SoundPlayer clickSound = new SoundPlayer(@"click.wav");
+                clickSound.Play();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error playing sound: " + ex.Message);
+            }
+        }
+
+        private void PlayResultSound()
+        {
+                SoundPlayer resultSound = new SoundPlayer(@"resultat.wav");
+                resultSound.Play();
+        }
+
         private void button15_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             if (label1.Text == "0")
             {
                 label1.Text = "2";
@@ -268,16 +304,19 @@ namespace Calculatrice
 
         private void button17_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             AppendZero();
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             label1.Text += ".";
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             num = float.Parse(label1.Text);
             label1.Text = "";
             count = 1;
@@ -285,6 +324,7 @@ namespace Calculatrice
 
         private void button19_Click_1(object sender, EventArgs e)
         {
+            PlayResultSound();
             compute();
         }
 
@@ -322,6 +362,7 @@ namespace Calculatrice
 
         private void button3_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             label1.Text = "";
             count = 5;
         }
@@ -461,6 +502,7 @@ namespace Calculatrice
 
         private void button16_Click(object sender, EventArgs e)
         {
+            PlayClickSound();
             if (label1.Text == "0") 
             {
                 label1.Text = "1";
