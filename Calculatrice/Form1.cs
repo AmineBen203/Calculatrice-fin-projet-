@@ -306,7 +306,6 @@ namespace Calculatrice
 
         private void button19_Click_1(object sender, EventArgs e)
         {
-            PlayResultSound();
             compute();
         }
 
